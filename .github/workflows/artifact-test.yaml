@@ -1,21 +1,18 @@
 name: artifact-test
 on:
-  push:
-    tags:
-    - '*'
   schedule:
-  - cron: '*/10 * * * *'
+    - cron: '*/20 * * * *'
 jobs:
-  artifact:
+  main:
     name: Create GitHub Release
     runs-on: ubuntu-latest
     steps:
-    - name: Create artifact files
-      run: |
-        mkdir test
-        echo "Create a message Test" > test/messages
-    - uses: actions/upload-artifact@v1
-      with:
-        name: test
-        path: test
+      - name: Create artifact files
+        run: |
+          mkdir test
+          echo "Create a message Test" > test/messages
+      - uses: actions/upload-artifact@v1
+        with:
+          name: test
+          path: test
 
