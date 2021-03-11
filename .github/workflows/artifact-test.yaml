@@ -13,7 +13,7 @@ jobs:
     - name: Create artifact files
       run: |
         mkdir test
-        echo "Degital Badge Test" > test/messages
+        echo "Create a message Test" > test/messages
     - uses: actions/upload-artifact@v1
       with:
         name: test
