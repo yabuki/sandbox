@@ -1,0 +1,21 @@
+name: artifact-test
+on:
+  push:
+    tags:
+    - '*'
+  schedule:
+  - cron: '*/10 * * * *'
+jobs:
+  artifact:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create artifact files
+      run: |
+        mkdir test
+        echo "Degital Badge Test" > test/messages
+    - uses: actions/upload-artifact@v1
+      with:
+        name: test
+        path: test
+
